@@ -6,7 +6,7 @@ from contact import models
 class ContactAdmin(admin.ModelAdmin):
     list_display = (
         'id', 'first_name', 'last_name', 'phone',
-        'email', 'created_date',
+        'email', 'created_date', 'category',
     )
 
     list_display_links = (
@@ -18,14 +18,21 @@ class ContactAdmin(admin.ModelAdmin):
     )
 
     list_filter = (
-        'created_date',
+        'created_date', 'category',
     )
 
     search_fields = (
         'id', 'first_name', 'last_name', 'phone',
-        'email', 'created_date',
+        'email', 'created_date', 'category',
     )
 
     list_max_show_all = 50
-    list_per_page = 1
-    
+
+
+@admin.register(models.Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name',)
+    list_display_links = ('id', 'name',)
+    ordering = ('-id',)
+    search_fields = ('name',)
+    list_max_show_all = 50
