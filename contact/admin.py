@@ -6,7 +6,7 @@ from contact import models
 class ContactAdmin(admin.ModelAdmin):
     list_display = (
         'id', 'first_name', 'last_name', 'phone',
-        'email', 'created_date', 'category',
+        'show', 'email', 'created_date', 'category',
     )
 
     list_display_links = (
@@ -26,6 +26,7 @@ class ContactAdmin(admin.ModelAdmin):
         'email', 'created_date', 'category',
     )
 
+    list_editable = ('show', )
     list_max_show_all = 50
 
 
