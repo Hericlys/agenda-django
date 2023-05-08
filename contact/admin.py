@@ -23,11 +23,11 @@ class ContactAdmin(admin.ModelAdmin):
 
     search_fields = (
         'id', 'first_name', 'last_name', 'phone',
-        'email', 'created_date', 'category',
+        'email', 'created_date',
     )
 
     list_editable = ('show', )
-    list_max_show_all = 50
+    list_per_page = 20
 
 
 @admin.register(models.Category)
@@ -36,4 +36,4 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'name',)
     ordering = ('-id',)
     search_fields = ('name',)
-    list_max_show_all = 50
+    list_per_page = 20
