@@ -1,31 +1,22 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.contrib.auth.forms import UserCreationForm
 from . import models
 
 class ContactForm(forms.ModelForm):
-    first_name = forms.CharField(
-        widget=forms.TextInput(
+    picture = forms.ImageField(
+        widget=forms.FileInput(
             attrs={
-                'placeholder': 'veio do novo campo',
-            }   
-        ),
-        label='Primeiro nome',
-        help_text='Texto de ajuda para o usuario'
+                'accept': 'image/*',
+            }
+        )
     )
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-    #   self.fields['first_name'].widget.attrs.update({
-    #        'placeholder': 'First Name',
-    #   })
-
     class Meta:
         model = models.Contact
         fields = (
             'first_name', 'last_name',
             'phone', 'email', 'description',
-            'category',
+            'category', 'picture',
             )
 
     def clean(self): # Usado para fazer validações que depende de outros campos
@@ -44,10 +35,7 @@ class ContactForm(forms.ModelForm):
 
         return super().clean()
 
-    def clean_first_name(self): # usado para validações expecificas de um campo
-        first_name = self.cleaned_data.get('first_name')
-        #if first_name == "ABC":
-        #    raise ValidationError(
-        #       'Não digite abc nesse campo'
-        #    )
-        return first_name
+
+class RegisterForm(UserCreationForm):
+    ...
+    
