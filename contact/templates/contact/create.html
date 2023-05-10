@@ -1,7 +1,12 @@
 {% extends 'global/base.html' %}
 
 {% block 'content' %}
-    <h1>CREATE CONTACT</h1>
+    {% if update %}
+        <h1>UPDATE CONTACT</h1>
+    {% else %}
+        <h1>CREATE CONTACT</h1>
+    {% endif %}
+    
     <div class="form-wrapper">
 
         <h2>Contact</h2>

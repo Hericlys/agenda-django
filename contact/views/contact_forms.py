@@ -54,6 +54,7 @@ def update(request, contact_id):
         context = {
             'form': form,
             'form_action': form_action,
+            'update': True,
         }
 
         if form.is_valid():
@@ -69,6 +70,7 @@ def update(request, contact_id):
     context = {
         'form': ContactForm(instance=contact),
         'form_action': form_action,
+        'update': True,
     }
 
     return render(
@@ -84,7 +86,6 @@ def delete(request, contact_id):
     )
 
     confirmation = request.POST.get('confirmation', 'no')
-    print(confirmation)
 
     if confirmation == 'yes':
         contact.delete()
