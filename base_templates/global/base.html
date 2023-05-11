@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     {% include 'global/partials/_head.html' %}
 </head>
@@ -10,7 +10,10 @@
 
     <main class="content">
         {% block 'content' %}{% endblock %}
-        {% include 'global/partials/_pagination.html' %}
+        {% if page_obj and user.is_authenticated %}
+            {% include 'global/partials/_pagination.html' %}
+        {% endif %}
+        
     </main>
     
 </body>
