@@ -64,7 +64,7 @@ O site de agenda é uma aplicação simples, mas funcional, que permite aos usu�
 
 ---
 
-## sobre o script de creação de contato:
+## sobre o script de criação de contatos:
 
 `python utils/create_contact.py`
 
