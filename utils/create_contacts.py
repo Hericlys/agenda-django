@@ -8,7 +8,7 @@ import django
 from django.conf import settings
 
 DJANGO_BASE_DIR = Path(__file__).parent.parent
-NUMBER_OF_OBJECTS = 1000
+NUMBER_OF_OBJECTS = 1000 # informe o numero de contatos que seram inseridos na base de dados
 
 sys.path.append(str(DJANGO_BASE_DIR))
 os.environ['DJANGO_SETTINGS_MODULE'] = 'project.settings'
@@ -20,12 +20,16 @@ if __name__ == '__main__':
     import faker
 
     from contact.models import Category, Contact
+    from django.contrib.auth.models import User
 
+    # Para apaga a base de dados antiga descomente as linhas abaixo.
+    
     #Contact.objects.all().delete()
     #Category.objects.all().delete()
 
     fake = faker.Faker('pt_BR')
-    categories = ['Amigos', 'Família', 'Conhecidos']
+    user = User.objects.get(username="") # insira o nome de usuario e descomente a o owner na linha 61
+    categories = ['Amigos', 'Família', 'Conhecidos'] # adcione suas categorias aqui
 
     django_categories = [Category(name=name) for name in categories]
 
@@ -42,6 +46,7 @@ if __name__ == '__main__':
         created_date: datetime = fake.date_this_year()
         description = fake.text(max_nb_chars=100)
         category = choice(django_categories)
+        
 
         django_contacts.append(
             Contact(
@@ -52,6 +57,8 @@ if __name__ == '__main__':
                 created_date=created_date,
                 description=description,
                 category=category,
+                # descomente essa linha se quiser que os contatos sejam visiveis fora da area administrativa
+                #owner=user
             )
         )
 

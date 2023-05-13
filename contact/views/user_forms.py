@@ -21,13 +21,13 @@ def register(request):
         request,
         'contact/register.html',
         {
-            'form': form
+            'form': form,
+            'site_title': 'User create - ',
         }
     )
 
 
 def login_view(request):
-
     next = request.GET.get('next')
     form = AuthenticationForm(request)
 
@@ -49,7 +49,8 @@ def login_view(request):
         request,
         'contact/login.html',
         {
-            'form': form
+            'form': form,
+            'site_title': 'login - ',
         }
     )
 
@@ -78,6 +79,7 @@ def user_update(request):
         request,
         'contact/user_update.html',
         {
-            'form': form
+            'form': form,
+            'site_title': 'User update - ',
         }
     )

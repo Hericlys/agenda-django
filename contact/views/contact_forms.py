@@ -16,8 +16,9 @@ def create(request):
         form = ContactForm(request.POST, request.FILES)
         
         context = {
-      'form': form,
+            'form': form,
             'form_action': form_action,
+            'site_title': 'Contact create - ',
         }
 
         if form.is_valid():
@@ -37,6 +38,7 @@ def create(request):
     context = {
         'form': ContactForm(),
         'form_action': form_action,
+        'site_title': 'Contact create - ',
     }
 
     return render(
@@ -60,6 +62,7 @@ def update(request, contact_id):
             'form': form,
             'form_action': form_action,
             'update': True,
+            'site_title': 'Contact update - ',
         }
 
         if form.is_valid():
@@ -76,6 +79,7 @@ def update(request, contact_id):
         'form': ContactForm(instance=contact),
         'form_action': form_action,
         'update': True,
+        'site_title': 'Contact create - ',
     }
 
     return render(
@@ -100,4 +104,5 @@ def delete(request, contact_id):
     return render(request, 'contact/contact.html', {
         'contact': contact,
         'confirmation': confirmation,
+        'site_title': 'Contact delete - ',
         })
