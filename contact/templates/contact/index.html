@@ -12,7 +12,6 @@
 
                 <thead>
                     <tr class="table-row table-row-header">
-                        <th class="table-header">ID</th>
                         <th class="table-header">First Name</th>
                         <th class="table-header">Last Name</th>
                         <th class="table-header">Phone</th>
@@ -24,9 +23,8 @@
                     {% for contact in page_obj %}
                         <tr class="table-row">
                             <th class="table-cel">
-                                <a class="table-link" href="{% url 'contact:contact' contact.id %}">{{ contact.id }}</a>
+                                <a class="table-link" href="{% url 'contact:contact' contact.id %}">{{ contact.first_name }}</a>
                             </th>
-                            <th class="table-cel">{{ contact.first_name }}</th>
                             <th class="table-cel">{{ contact.last_name }}</th>
                             <th class="table-cel">{{ contact.phone }}</th>
                             <th class="table-cel">{{ contact.email }}</th>

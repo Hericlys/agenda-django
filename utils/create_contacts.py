@@ -57,8 +57,7 @@ if __name__ == '__main__':
                 created_date=created_date,
                 description=description,
                 category=category,
-                # descomente essa linha se quiser que os contatos sejam visiveis fora da area administrativa
-                #owner=user
+                #owner=user # descomente para adcionar contatos aop usuario informado
             )
         )
 
