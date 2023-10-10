@@ -60,7 +60,7 @@ O site de agenda também possui um painel de administração para gerenciar usu�
 
 # Considerações finais
 
-O site de agenda é uma aplicação simples, mas funcional, que permite aos usuários gerenciar seus contatos de forma eficiente. Ele foi construído usando o framework Django **para fins de estudo**.
+O site de agenda é uma aplicação simples, mas funcional, que permite aos usuários gerenciar seus contatos de forma eficiente. Ele foi construído usando o framework Django **Para fins de estudo com o professor Luiz Otavio miranda**.
 
 ---
 
